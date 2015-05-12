@@ -1,0 +1,32 @@
+#!/bin/bash
+
+sleep 3
+
+joiner=`dig @$MASTER rethinkdb-intracluster.service.consul +short`
+
+echo "found host: $joiner"
+currentIp=`ip route get 8.8.8.8 | awk 'NR==1 {print $NF}'`
+echo "Have current ip: $currentIp"
+
+#rx='([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])'
+#if [[ $ip =~ ^$rx\.$rx\.$rx\.$rx$ ]]; then
+#	echo "Valid ip"
+#else
+#	echo "Invalid ip!!"
+#	exit 1
+#fi
+
+if [ -z "$joiner" ]
+then
+	echo "Starting a cluster!"
+	exec rethinkdb --bind all "$@"
+else
+	if [ "$joiner" == "$currentIp" ]
+	then
+		echo "Starting a cluster!"
+		exec rethinkdb --bind all "$@"
+	else
+		echo "Joining a cluster!!!"
+		exec rethinkdb --bind all --join "$joiner" "$@"
+	fi
+fi

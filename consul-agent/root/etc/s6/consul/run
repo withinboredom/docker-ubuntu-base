@@ -5,10 +5,10 @@ BIND="$(getent hosts $HOSTNAME | awk '{print $1}')"
 
 if [ -z "$MASTER" ]
 then
-	next="-bootstrap"
+	echo "Master not set!"
+	exit 1
 else
 	next="-join=$MASTER"
 fi
 
-echo "USE IP $BIND"
 exec consul agent -config-dir /etc/consul.d/bootstrap $next -dc $DATACENTER;

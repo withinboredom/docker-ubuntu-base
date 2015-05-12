@@ -25,8 +25,13 @@ RUN curl -sSLO https://dl.bintray.com/mitchellh/consul/${CONSUL_VERSION}_linux_a
     mkdir -p /data && \
     chown -R consul:consul /data
 
-VOLUME ["/data"]
+RUN curl -sSLO https://dl.bintray.com/mitchellh/consul/${CONSUL_VERSION}_web_ui.zip && \
+ unzip ${CONSUL_VERSION}_web_ui.zip && \
+ mv dist /ui && \
+ rm ${CONSUL_VERSION}_web_ui.zip
 
 ADD root /
 
-EXPOSE 8300 8301 8301/udp 8302 8302/udp 8400 53 53/udp
+VOLUME ["/data"]
+
+EXPOSE 8300 8301 8301/udp 8302 8302/udp 8400 53 8500 53/udp

@@ -1,0 +1,10 @@
+{
+  "server": true,
+  "client_addr": "0.0.0.0",
+  "data_dir": "/data",
+  "recursor": "8.8.8.8",
+  "ports": {
+    "dns": 53
+  },
+  "ui_dir": "/ui"
+}

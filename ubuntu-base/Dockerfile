@@ -1,15 +1,19 @@
 # DOCKER-VERSION 1.0.0
 
-FROM ubuntu:14.04
+FROM alpine:3.1
 MAINTAINER Scott Mebberson <scott@scottmebberson.com>
 
-RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt-get update && \
-    apt-get install -y build-essential software-properties-common curl rsync dnsutils && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --update bind-tools && \
+    rm -rf /var/cache/apk/*
+
+ENV S6_OVERLAY_VERSION v1.9.1.3
+
+ADD https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz /tmp/s6-overlay.tar.gz
+RUN tar xvfz /tmp/s6-overlay.tar.gz -C /
 
 ADD root /
 
-ENTRYPOINT ["/usr/bin/s6-svscan","/etc/s6"]
+# ONBUILD ADD root /
+
+ENTRYPOINT ["/init"]
 CMD []
