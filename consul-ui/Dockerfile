@@ -3,14 +3,7 @@
 FROM withinboredom/ubuntu-base
 MAINTAINER Scott Mebberson <scott@scottmebberson.com>
 
-# Install Unzip
-RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt-get update && \
-    apt-get install -y unzip && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-ENV CONSUL_VERSION 0.5.0
+ENV CONSUL_VERSION 0.5.2
 ENV DATACENTER "local"
 ENV MASTER ""
 
