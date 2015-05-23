@@ -3,7 +3,15 @@
     {
       "name": "rethinkdb-web",
       "tags": ["ops"],
-      "port": 8080
+      "port": 8080,
+      "checks": [
+        {
+          "name": "HTTP Console Check",
+          "http": "http://localhost:8080",
+          "interval": "10s",
+          "timeout": "2s"
+        }
+      ]
     },
     {
       "name": "rethinkdb-client",
