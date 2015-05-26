@@ -1,0 +1,3 @@
+[submodule "ubuntu-base"]
+	path = ubuntu-base
+	url = git@github.com:withinboredom/docker-base.git
