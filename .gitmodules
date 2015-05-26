@@ -10,3 +10,6 @@
 [submodule "consul-ui"]
 	path = consul-ui
 	url = git@github.com:withinboredom/docker-consul-ui.git
+[submodule "rethinkdb"]
+	path = rethinkdb
+	url = git@github.com:withinboredom/docker-rethinkdb.git
