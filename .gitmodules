@@ -7,3 +7,6 @@
 [submodule "consul-agent"]
 	path = consul-agent
 	url = git@github.com:withinboredom/docker-consul-agent.git
+[submodule "consul-ui"]
+	path = consul-ui
+	url = git@github.com:withinboredom/docker-consul-ui.git
