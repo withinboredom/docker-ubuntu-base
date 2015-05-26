@@ -1,3 +1,6 @@
 [submodule "ubuntu-base"]
 	path = ubuntu-base
 	url = git@github.com:withinboredom/docker-base.git
+[submodule "consul"]
+	path = consul
+	url = git@github.com:withinboredom/docker-consul.git
