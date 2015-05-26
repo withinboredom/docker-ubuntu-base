@@ -13,3 +13,6 @@
 [submodule "rethinkdb"]
 	path = rethinkdb
 	url = git@github.com:withinboredom/docker-rethinkdb.git
+[submodule "blue-volume"]
+	path = blue-volume
+	url = git@github.com:withinboredom/docker-blue-volume.git
