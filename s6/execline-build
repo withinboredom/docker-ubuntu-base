@@ -42,4 +42,4 @@ sudo ../make install
 ../make clean
 
 rm /package/admin/execline || true
-sudo ln -s /package/admin/$EXECLIN_VERSION /package/admin/execline
+sudo ln -s /package/admin/$EXECLINE_VERSION /package/admin/execline
