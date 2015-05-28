@@ -5,7 +5,7 @@ set -x
 # This script will automate the process of building execline (one of the requirements to building s6)
 # Adjust these as neccessary
 
-SKALIBS_VERSION="skalibs-1.6.0.0"
+SKALIBS_VERSION="skalibs-2.3.2.0"
 
 # You shouldn't need to change these, but you can as required
 
@@ -21,17 +21,18 @@ tar -zxpvf $SKALIBS_FILE
 rm $SKALIBS_FILE
 
 # setup the configuration, use musil-gcc to build skalibs
-cd prog/$SKALIBS_VERSION
+#cd prog/$SKALIBS_VERSION
 
-echo musl-gcc > conf-compile/conf-cc
-echo musl-gcc -static > conf-compile/conf-ld
-echo musl-gcc > conf-compile/conf-dynld
-echo /usr/bin > conf-compile/conf-install-command
-touch conf-compile/flag-allstatic
-package/compile
-rm -f package/library.so.exported
+cd $SKALIBS_VERSION
+
+export CC=musl-gcc
+
+./configure --enable-slashpackage --disable-shared
 
 # install skalib
 make
 sudo make install
 make clean
+
+rm /package/prog/skalibs || true
+sudo ln -s /package/prog/$SKALIBS_VERSION /package/prog/skalibs

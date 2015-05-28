@@ -6,7 +6,7 @@ set -x
 # Musl will be used to compile s6 into static executables
 # Adjust these as neccessary
 
-MUSIL_VERSION="musl-1.0.4"
+MUSIL_VERSION="musl-1.1.9"
 
 # You shouldn't need to change these, but you can as required
 
