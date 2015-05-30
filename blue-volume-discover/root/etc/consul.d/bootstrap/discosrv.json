@@ -1,0 +1,9 @@
+{
+  "services": [
+    {
+      "name": "sdiscovery",
+      "tags": ["ops"],
+      "port": 22026
+    }
+  ]
+}

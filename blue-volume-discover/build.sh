@@ -1,0 +1,1 @@
+docker build -t withinboredom/blue-volume-discover blue-volume-discover
