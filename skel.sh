@@ -25,6 +25,7 @@ echo "docker build -t withinboredom/$name $name" >> build.sh
 chmod +x build.sh
 
 touch Dockerfile
+touch README.md
 
 touch push.sh
 echo "docker push withinboredom/$name" >> push.sh

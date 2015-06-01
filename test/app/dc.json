@@ -1,0 +1,8 @@
+{
+  "name": "dc-east",
+  "node-groups": [
+    "backend",
+    "frontend"
+  ],
+  "strategy": "auto"
+}

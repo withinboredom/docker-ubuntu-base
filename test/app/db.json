@@ -1,0 +1,91 @@
+{
+  "dc": "*",
+  "affinity": "backend.*",
+  "fail": {
+    "type": "transition",
+    "steps": [
+      {
+        "predicate": "pick",
+        "adjective": "1",
+        "subject": "prod_db_replica"
+      },
+      {
+        "predicate": "keep",
+        "subject": "volumes"
+      },
+      {
+        "predicate": "restart_as",
+        "subject": "prod_db"
+      },
+      {
+        "predicate": "notify",
+        "subject": "landers.robert@gmail.com"
+      },
+      {
+        "predicate": "resume"
+      }
+    ]
+  },
+  "service": {
+    "name": "mysql",
+    "machines":[
+      {
+        "image": "withinboredom/mysql",
+        "vars": [
+          "MYSQL_USER=admin",
+          "MYSQL_PASS=123",
+          "REPLICATION_MASTER=true"
+        ],
+        "expose": [
+          {
+            "service": "prod_db",
+            "ports": [
+              3306
+            ],
+            "strategy": "balanced"
+          }
+        ],
+        "instances": {
+          "number": 1,
+          "strategy": "singleton"
+        },
+        "volumes": [
+          {
+            "location": "/var/lib/mysql",
+            "type": "multi-dc",
+            "name": "prod_db"
+          }
+        ]
+      },
+      {
+        "image": "withinboredom/mysql",
+        "vars": [
+          "MYSQL_USER=admin",
+          "MYSQL_PASS=123",
+          "REPLICATION_SLAVE=true"
+        ],
+        "expose": [
+          {
+            "service": "prod_db_replica",
+            "ports": [
+              3306
+            ]
+          }
+        ],
+        "instances": {
+          "number": 3,
+          "strategy": "level"
+        },
+        "consume": [
+          "prod_db"
+        ],
+        "volumes": [
+          {
+            "location": "/var/lib/mysql",
+            "type": "single"
+          }
+        ]
+      }
+    ]
+  }
+}
