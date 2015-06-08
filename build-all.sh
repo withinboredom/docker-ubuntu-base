@@ -32,14 +32,16 @@ function doPush() {
 
 bp ubuntu-base
 bp consul
-bp node
-bp basic-node
 bp consul-ui
 bp consul-agent
+bp node
+bp basic-node
 bp rethinkdb
 bp blue-volume
 bp blue-volume-discover
 bp mysql
+bp node
+bp nginx
 
 doPush
 
