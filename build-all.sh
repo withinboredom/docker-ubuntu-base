@@ -26,7 +26,7 @@ function bp() {
 function doPush() {
 	for p in "${PUSH[@]}"
 	do
-		$p &
+		$p
 	done
 }
 
@@ -35,7 +35,6 @@ bp consul
 bp consul-ui
 bp consul-agent
 bp node
-bp basic-node
 bp rethinkdb
 bp blue-volume
 bp blue-volume-discover

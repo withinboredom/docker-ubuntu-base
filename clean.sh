@@ -5,5 +5,5 @@ docker rm $(docker ps -a -q)
 
 if [ "$1" == "true" ]
 then
-	docker rmi $(docker images -q)
+	docker rmi -f $(docker images -q)
 fi

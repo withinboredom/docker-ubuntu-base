@@ -1,1 +1,2 @@
-docker build -t withinboredom/nginx nginx
+docker tag -f withinboredom/consul-agent withinboredom/nginx:base
+docker build -t withinboredom/nginx:latest nginx

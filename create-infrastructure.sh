@@ -50,11 +50,11 @@ startContainer consul withinboredom/consul-ui
 getIp consul
 MASTER=$dockerip
 
-#startContainer sdiscover withinboredom/blue-volume-discover
-#startContainer blue-volume-1 withinboredom/blue-volume
-doPause="true"
-#startContainer blue-volume-2 withinboredom/blue-volume
-#startContainer blue-volume-3 withinboredom/blue-volume
+startContainer sdiscover withinboredom/blue-volume-discover
+startContainer blue-volume-1 withinboredom/blue-volume
+#doPause="true"
+startContainer blue-volume-2 withinboredom/blue-volume
+startContainer blue-volume-3 withinboredom/blue-volume
 doPause="false"
 #startContainer mysql-seed withinboredom/mysql "-e MYSQL_USER=admin -e MYSQL_PASS=123 -e REPLICATION_MASTER=true"
 #startContainer mysql-slave-seed-1 withinboredom/mysql "-e MYSQL_USER=admin -e MYSQL_PASS=123 -e REPLICATION_SLAVE=true -e MYSQL_PORT_3306_TCP_ADDR=mysql-master.service.consul -e MYSQL_PORT_3306_TCP_PORT=3306"
