@@ -35,6 +35,7 @@ bp consul
 bp consul-ui
 bp consul-agent
 bp node
+bp nodejs
 bp rethinkdb
 bp blue-volume
 bp blue-volume-discover

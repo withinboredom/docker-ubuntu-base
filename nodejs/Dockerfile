@@ -1,7 +1,7 @@
 # DOCKER-VERSION 1.0.0
 
-FROM smebberson/ubuntu-base
-MAINTAINER Scott Mebberson <scott@scottmebberson.com>
+FROM withinboredom/ubuntu-base
+MAINTAINER Robert Landers <landers.robert@gmail.com>
 
 # Setup Node.js (Setup NodeSource Official PPA)
 # https://github.com/nodesource/docker-node/blob/master/ubuntu/trusty/Dockerfile
@@ -11,3 +11,5 @@ RUN curl -sL https://deb.nodesource.com/setup | bash - && \
     apt-get install -y --force-yes nodejs && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+RUN npm install -g forever
