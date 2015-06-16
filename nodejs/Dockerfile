@@ -1,6 +1,6 @@
 # DOCKER-VERSION 1.0.0
 
-FROM withinboredom/ubuntu-base
+FROM withinboredom/consul-agent
 MAINTAINER Robert Landers <landers.robert@gmail.com>
 
 # Setup Node.js (Setup NodeSource Official PPA)
