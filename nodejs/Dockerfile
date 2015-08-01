@@ -8,8 +8,12 @@ MAINTAINER Robert Landers <landers.robert@gmail.com>
 RUN curl -sL https://deb.nodesource.com/setup | bash - && \
     apt-get update && \
     apt-get install -y --force-yes apt-transport-https lsb-release python-all git && \
-    apt-get install -y --force-yes nodejs && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g forever
+env NODE_VERSION 0.10.33
+env NPM_VERSION 1.3.6
+env NVM_SYMLINK_CURRENT "true"
+run touch /.profile && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | NVM_DIR=/usr/local/nvm PROFILE=/.profile bash
+run . /.profile && nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION
+run . /.profile && npm install -g npm@$NPM_VERSION && npm install -g forever
