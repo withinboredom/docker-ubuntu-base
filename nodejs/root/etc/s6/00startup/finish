@@ -1,3 +1,0 @@
-#!/bin/bash
-
-s6-svc -O /etc/s6/00startup

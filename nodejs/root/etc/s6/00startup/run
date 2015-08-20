@@ -1,8 +1,0 @@
-#!/bin/bash
-
-touch /.profile
-
-nvm install $NODE_VERSION
-nvm use $NODE_VERSION
-nvm alias default $NODE_VERSION
-npm install -g npm@$NPM_VERSION
