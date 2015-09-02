@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [ "$ALLOW_DEBUG" == "true" ]
-then
- echo "Allowing for debug"
-fi
-
-exec php5-fpm -F
