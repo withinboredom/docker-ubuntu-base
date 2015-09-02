@@ -16,3 +16,6 @@
 [submodule "blue-volume"]
 	path = blue-volume
 	url = git@github.com:withinboredom/docker-blue-volume.git
+[submodule "green-volume"]
+	path = green-volume
+	url = git@github.com:withinboredom/docker-green-volume.git
