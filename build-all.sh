@@ -38,6 +38,7 @@ bp nodejs
 bp rethinkdb
 bp blue-volume
 bp blue-volume-discover
+bp green-volume
 bp mysql
 bp node
 bp nginx
