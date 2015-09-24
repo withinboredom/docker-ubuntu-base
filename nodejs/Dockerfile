@@ -11,8 +11,8 @@ RUN curl -sL https://deb.nodesource.com/setup | bash - && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-env NODE_VERSION 0.10.31
-env NPM_VERSION 1.4.23
+env NODE_VERSION 4.1.1
+env NPM_VERSION 3.3.3
 env NVM_SYMLINK_CURRENT "true"
 run touch /.profile && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | NVM_DIR=/usr/local/nvm PROFILE=/.profile bash
 run . /.profile && nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION
