@@ -14,4 +14,4 @@ RUN mkdir /root/.ssh && \
 
 ADD root /
 
-ENTRYPOINT ["/git"]
+ENTRYPOINT ["git"]
